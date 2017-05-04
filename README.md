@@ -1,0 +1,1 @@
+This is a simple note-taking app (think Google Keep) made from scratch with Mongo, Express, React/Redux, and Node.
