@@ -3,7 +3,7 @@
 import Immutable from 'immutable'
 import type { fromJS as Immut } from 'immutable'
 
-import { 
+import {
   SAY_HELLO,
   SAY_HELLO_ASYNC_REQUEST,
   SAY_HELLO_ASYNC_SUCCESS,
