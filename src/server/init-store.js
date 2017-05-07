@@ -27,4 +27,3 @@ const initStore = (plainPartialState: ?Object) => {
 }
 
 export default initStore
-

@@ -17,7 +17,7 @@ import {
 
 import renderApp from './render-app'
 
-export default (app: Object) => {
+export default (app: Object, db: Object) => {
   app.get(HOME_PAGE_ROUTE, (req, res) => {
     res.send(renderApp(req.url, homePage()))
   })
@@ -31,8 +31,14 @@ export default (app: Object) => {
   })
 
   app.post(NOTES_ROUTE, (req, res) => {
-    // Create a note here
-    res.send(renderApp('New Note Created in Post request'))
+    const note = { content: req.body.body, title: req.body.title }
+    db.collection('notes').insert(note, (err, result) => {
+      if (err) {
+        res.send({ error: 'An error has occurred' })
+      } else {
+        res.send(renderApp(result.ops[0]))
+      }
+    })
   })
 
   app.get(helloEndpointRoute(), (req, res) => {

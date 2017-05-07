@@ -11,7 +11,7 @@ import {
 
 const initialState = Immutable.fromJS({
   title: 'Untitled',
-  content: '',
+  content: '[no content]',
 })
 
 const notesReducer = (state: Immut = initialState, action: { type: string, payload: any}) => {
