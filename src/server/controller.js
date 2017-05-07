@@ -14,6 +14,11 @@ export const helloEndpoint = (num: number) => ({
   serverMessage: `Hello from the server! (received ${num})`,
 })
 
+export const NotesPage = () => ({
+  // make db call
+  notes: { title: 'Shopping list' },
+})
+
 // This would typically make business logic and database calls
 // right now, we're just hard-coding some results.
 // The results are passed back to the routing module to be used

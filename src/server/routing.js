@@ -12,6 +12,7 @@ import {
   HELLO_PAGE_ROUTE,
   HELLO_ASYNC_PAGE_ROUTE,
   helloEndpointRoute,
+  NOTES_ROUTE,
 } from '../shared/routes'
 
 import renderApp from './render-app'
@@ -27,6 +28,11 @@ export default (app: Object) => {
 
   app.get(HELLO_ASYNC_PAGE_ROUTE, (req, res) => {
     res.send(renderApp(req.url, helloAsyncPage()))
+  })
+
+  app.post(NOTES_ROUTE, (req, res) => {
+    // Create a note here
+    res.send(renderApp('New Note Created in Post request'))
   })
 
   app.get(helloEndpointRoute(), (req, res) => {
