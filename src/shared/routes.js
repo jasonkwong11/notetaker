@@ -8,7 +8,6 @@ export const NOT_FOUND_DEMO_PAGE_ROUTE = '/404'
 
 // Notes Routes
 export const NOTES_ROUTE = '/notes'
-export const ONE_NOTE_ROUTE = '/notes/:id'
 
 // eslint-disable-next-line import/prefer-default-export
 export const helloEndpointRoute = (num: ?number) => `/ajax/hello/${num || ':num'}`
