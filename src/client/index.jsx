@@ -8,13 +8,13 @@ import Immutable from 'immutable'
 import { Provider } from 'react-redux'
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
+import { apiMiddleware } from 'redux-api-middleware'
 import { BrowserRouter } from 'react-router-dom'
 import $ from 'jquery'
 import Tether from 'tether'
 
 import App from '../shared/app'
 import helloReducer from '../shared/reducer/hello'
-import notesReducer from '../shared/reducer/notes'
 import { APP_CONTAINER_SELECTOR, JSS_SSR_SELECTOR } from '../shared/config'
 import { isProd } from '../shared/util'
 import setUpSocket from './socket'
@@ -29,9 +29,9 @@ const preloadedState = window.__PRELOADED_STATE__
 /* eslint-enable no-underscore-dangle */
 
 const store = createStore(combineReducers(
-  { hello: helloReducer }, { notes: notesReducer }),
-  { hello: Immutable.fromJS(preloadedState.hello), notes: Immutable.fromJS(preloadedState.notes) },
-  composeEnhancers(applyMiddleware(thunkMiddleware)))
+  { hello: helloReducer }),
+  { hello: Immutable.fromJS(preloadedState.hello) },
+  composeEnhancers(applyMiddleware(thunkMiddleware, apiMiddleware)))
 
 const rootEl = document.querySelector(APP_CONTAINER_SELECTOR)
 

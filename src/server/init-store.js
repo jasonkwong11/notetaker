@@ -3,6 +3,7 @@
 import Immutable from 'immutable'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
+import { apiMiddleware } from 'redux-api-middleware'
 
 import helloReducer from '../shared/reducer/hello'
 import notesReducer from '../shared/reducer/notes'
@@ -23,7 +24,7 @@ const initStore = (plainPartialState: ?Object) => {
   }
 
   return createStore(combineReducers({ hello: helloReducer, notes: notesReducer }),
-    preloadedState, applyMiddleware(thunkMiddleware))
+    preloadedState, applyMiddleware(thunkMiddleware, apiMiddleware))
 }
 
 export default initStore
