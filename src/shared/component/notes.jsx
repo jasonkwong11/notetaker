@@ -1,7 +1,9 @@
+/* eslint-disable */
+
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Notes = ({notes}) => (
+const Notes = ({ notes }) => (
   <ul>
     {notes.map((note, i) =>
       <li key={i}>
@@ -12,7 +14,7 @@ const Notes = ({notes}) => (
   </ul>
 )
 
-Posts.propTypes = {
+Notes.propTypes = {
   notes: PropTypes.array.isRequired
 }
 

@@ -9,44 +9,44 @@ import * as actionTypes from './actionTypes'
 // Regular synchronous action
 export const sayHello = createAction(actionTypes.SAY_HELLO)
 
-export function selectBook(book) {
+export function selectBook(book: Object) {
   return {
     type: actionTypes.SELECT_BOOK,
-    book
+    book,
   }
 }
 
-export function invalidateBook(book) {
+export function invalidateBook(book: Object) {
   return {
     type: actionTypes.INVALIDATE_BOOK,
-    book
+    book,
   }
 }
 
-export function requestNotes(book) {
+export function requestNotes(book: String) {
   return {
     type: actionTypes.REQUEST_NOTES,
-    book
+    book,
   }
 }
 
-export function receiveNotes(book, json) {
+export function receiveNotes(book: Object, json: Object) {
   return {
     type: actionTypes.RECEIVE_NOTES,
     book,
     notes: json.data.children.map(child => child.data),
-    receivedAt: Date.now()
+    receivedAt: Date.now(),
   }
 }
 
-export const fetchNotes = book => dispatch => {
+export const fetchNotes = (book: String) => (dispatch: Function) => {
   dispatch(requestNotes(book))
-  return fetch(`http://localhost:8000/api/${book}.json`)
+  return fetch('http://localhost:8000/api.json')
     .then(response => response.json())
     .then(json => dispatch(receiveNotes(book, json)))
 }
 
-export const shouldFetchNotes = (state, book) => {
+export const shouldFetchNotes = (state: Object, book: String) => {
   const notes = state.notesByBook[book]
   if (!notes) {
     return true
@@ -54,13 +54,14 @@ export const shouldFetchNotes = (state, book) => {
   if (notes.isFetching) {
     return false
   }
-  return books.didInvalidate
+  return notes.didInvalidate
 }
 
-export const fetchNotesIfNeeded = book => (dispatch, getState) => {
+export const fetchNotesIfNeeded = (book: String) => (dispatch: Function, getState: Function) => {
   if (shouldFetchNotes(getState(), book)) {
     return dispatch(fetchNotes(book))
   }
+  return getState()
 }
 
 // Async actions
