@@ -14,7 +14,7 @@ export const helloEndpoint = (num: number) => ({
   serverMessage: `Hello from the server! (received ${num})`,
 })
 
-export const NotesPage = () => ({
+export const notesPage = () => ({
   // make db call
   notesPages: { title: 'Shopping list' },
 })

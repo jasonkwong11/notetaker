@@ -13,4 +13,4 @@ export const NOTES_ROUTE = '/notes'
 export const helloEndpointRoute = (num: ?number) => `/ajax/hello/${num || ':num'}`
 
 // eslint-disable-next-line import/prefer-default-export
-export const notesEndpointRoute = () => '/ajax/notes'
+export const notesEndpointRoute = (num: ?number) => `/ajax/notes/${num || ':num'}`

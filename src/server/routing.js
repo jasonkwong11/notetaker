@@ -5,6 +5,7 @@ import {
   helloPage,
   helloAsyncPage,
   helloEndpoint,
+  notesPage,
 } from './controller'
 
 import {
@@ -28,6 +29,10 @@ export default (app: Object, db: Object) => {
 
   app.get(HELLO_ASYNC_PAGE_ROUTE, (req, res) => {
     res.send(renderApp(req.url, helloAsyncPage()))
+  })
+
+  app.get(NOTES_ROUTE, (req, res) => {
+    res.send(renderApp(req.url, notesPage()))
   })
 
   app.post(NOTES_ROUTE, (req, res) => {
