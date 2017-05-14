@@ -5,7 +5,7 @@ import {
   sayHelloAsyncFailure,
 } from '../action/hello'
 
-import helloReducer from './hello'
+import { helloReducer } from './hello'
 
 let helloState
 
