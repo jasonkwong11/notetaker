@@ -7,5 +7,6 @@
   "plugins": [
     "flow-react-proptypes",
     "transform-object-rest-spread"
+    "babel-preset-stage-0"
   ]
 }
