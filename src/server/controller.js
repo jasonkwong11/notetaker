@@ -16,7 +16,7 @@ export const helloEndpoint = (num: number) => ({
 
 export const NotesPage = () => ({
   // make db call
-  notes: { title: 'Shopping list' },
+  notesPages: { title: 'Shopping list' },
 })
 
 // This would typically make business logic and database calls

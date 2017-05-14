@@ -28,6 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 routing(app, {})
 
 MongoClient.connect(db.url, (err, database) => {
+  // eslint-disable-next-line no-console
   if (err) console.log(err)
   routing(app, database)
 

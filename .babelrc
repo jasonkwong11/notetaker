@@ -2,11 +2,11 @@
   "presets": [
     "env",
     "flow",
-    "react"
+    "react",
+    "stage-0"
   ],
   "plugins": [
     "flow-react-proptypes",
     "transform-object-rest-spread"
-    "babel-preset-stage-0"
   ]
 }

@@ -8,6 +8,10 @@ import * as actionTypes from '../action/actionTypes'
 const initialState = Immutable.fromJS({
   message: 'Initial reducer message',
   messageAsync: 'Initial reducer message for async call',
+  selectedBook: 'None',
+  notes: [],
+  isFetching: false,
+  lastUpdated: undefined,
 })
 
 export const helloReducer = (
