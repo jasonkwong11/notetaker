@@ -82,8 +82,8 @@ class NotesPage extends React.Component {
               {isEmpty
                 ? (isFetching ? <h2>Loading...</h2> : <h2>Empty</h2>)
                 : <div style={{ opacity: isFetching ? .5 : 1 }}>
-                    <Notes notes={notes} />
-                  </div>
+                  <Notes notes={notes} />
+                </div>
               }
             </div>
           </div>
@@ -94,12 +94,18 @@ class NotesPage extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { selectedBook, notesByBook } = state
+  const { book, notes } = state
+  console.log('THIS IS STATE!!!')
+  console.log(state)
+  console.log('THIS IS notesByBook!!!')
+  console.log(notes)
+  console.log('THIS IS selectedBook!!!')
+  console.log(book)
   const {
     isFetching,
     lastUpdated,
     notes: notes
-  } = notesByBook[selectedBook] || {
+  } = notes[book] || {
     isFetching: true,
     notes: []
   }
@@ -113,4 +119,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(NotesPage)
-
