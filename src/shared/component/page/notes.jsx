@@ -104,14 +104,14 @@ const mapStateToProps = state => {
   const {
     isFetching,
     lastUpdated,
-    notes: notes
+    notes: notesByBook
   } = notes[book] || {
     isFetching: true,
     notes: []
   }
 
   return {
-    selectedBook,
+    book,
     notes,
     isFetching,
     lastUpdated
