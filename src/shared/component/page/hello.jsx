@@ -6,6 +6,10 @@ import Helmet from 'react-helmet'
 import HelloButton from '../../container/hello-button'
 import Message from '../../container/message'
 
+import Footer from '../../component/footer'
+import AddTodo from '../../container/add-todo'
+import VisibleTodoList from '../../container/visible-todo-list'
+
 const title = 'Hello Page'
 
 const HelloPage = () =>
@@ -22,6 +26,9 @@ const HelloPage = () =>
         <h1>{title}</h1>
         <Message />
         <HelloButton />
+        <AddTodo />
+        <VisibleTodoList />
+        <Footer />
       </div>
     </div>
   </div>
