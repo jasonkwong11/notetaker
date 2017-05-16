@@ -1,15 +1,24 @@
 // @flow
 
 import React from 'react'
-import { APP_NAME } from '../config'
+import FilterLink from '../container/filterlink'
 
-const Footer = () =>
-  <div className="container mt-5">
-    <hr />
-    <footer>
-      <p>© {APP_NAME} 2017</p>
-    </footer>
-  </div>
+const Footer = () => (
+  <p>
+    Show:
+    {' '}
+    <FilterLink filter="SHOW_ALL">
+      All
+    </FilterLink>
+    {', '}
+    <FilterLink filter="SHOW_ACTIVE">
+      Active
+    </FilterLink>
+    {', '}
+    <FilterLink filter="SHOW_COMPLETED">
+      Completed
+    </FilterLink>
+  </p>
+)
 
 export default Footer
-
